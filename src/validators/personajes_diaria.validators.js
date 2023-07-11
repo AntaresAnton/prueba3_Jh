@@ -22,6 +22,9 @@ const validadorPersonajes = [
         .exists().withMessage("Favor debe ir el atributo companero")
         .notEmpty().withMessage("Este campo debe venir con informacion")
         .isInt({ min: 0, max: 1 }).withMessage("Favor colocar 1 si es verdadero o 0 si es falso"),
+    check('imagen')
+        .exists().withMessage("Favor ingresar una imagen")
+        .notEmpty().withMessage("Este campo no puede venir vacio"),
     (req, res, next) => {
         return validadorResultado(req, res, next);
     }

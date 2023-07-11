@@ -1,12 +1,13 @@
 // Objetivo: Controlador para el login de la aplicacion
 const database = require('./../config/basedatos');
+//es un token que da acceso al usuario a una aplicación certificando su identidad
 const jwt = require('./../utils/jsonwebtoken');
 const { desencriptar } = require('./../utils/password');
 
 //GENERO FUNCION PARA VALIDAR EL LOGIN, DONDE NECESITO COMO PARAMETROS EL REQ(REQUEST) Y RES(RESPONSE)
 //REQ => LO QUE YO RECIBO AL SERVIDOR
 //RES => LO QUE YO ENVIO AL CLIENTE
-const login = async (req, res) => {
+const login = async (req, res ) => {
     //AGREGAMOS TRY-CATCH PARA QUE NUESTRA API NO SE CAIGA DE FORMA ABRUPTA
     try {
         //DESCONTRUIMOS EL OBJETO BODY OBTENIENDO SOLO LOS CAMPOS A USAR

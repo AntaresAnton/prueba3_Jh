@@ -28,13 +28,14 @@ CREATE TABLE IF NOT EXISTS `personajes_diaria` (
   `genero` tinyint(4) NOT NULL,
   `companero` tinyint(4) NOT NULL,
   `id_usuario` int(11) NOT NULL,
+  `imagen` varchar(500) NULL,
   PRIMARY KEY (`id_per`) USING BTREE,
   UNIQUE KEY `nombre_UNIQUE` (`nombre`)
 ) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- Volcando datos para la tabla api_daria.personajes_diaria: ~2 rows (aproximadamente)
 DELETE FROM `personajes_diaria`;
-INSERT INTO `personajes_diaria` (`id_per`, `nombre`, `descripcion`, `edad`, `genero`, `companero`, `id_usuario`) VALUES
+INSERT INTO `personajes_diaria` (`id_per`, `nombre`, `descripcion`, `edad`, `genero`, `companero`, `id_usuario`, `imagen`) VALUES
 	(1, 'Daria', 'Morgendorffer', 25, 1, 1, 2),
 	(3, 'Jane', 'Lane', 25, 1, 1, 2);
 

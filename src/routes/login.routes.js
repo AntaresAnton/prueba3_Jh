@@ -6,10 +6,10 @@ const { validadorLogin } = require('./../validators/login.validators');
 //LLAMAMOS NUESTRO METODO DE VERIFICAR TOKEN.
 const { TokenTrue } = require('./../middlewares/auth');
 //INSTACIA DE NUESTRA ROUTER DE EXPRESS
-const route = Router();
+const router = Router();
 //verifica si existe usario y crea token
-route.post('/login', [validadorLogin], login);
+router.post('/login', [validadorLogin], login);
 //verifica si el token es valido
-route.post('/verificar', TokenTrue, verificar);
+router.post('/verificar', TokenTrue, verificar);
 //EXPORTA NUESTRA RUTA PARA NUESTRO INDEX.JS
-module.exports = route;
+module.exports = router;

@@ -15,6 +15,7 @@ const personajes_diariaRoutes = require('./routes/personajes_diaria.routes');
 app.use('/usuario', usuarioRoutes);
 app.use('/auth', loginRoutes);
 app.use('/personajes', personajes_diariaRoutes);
+
 //RUTA POR DEFECTO
 app.all('*', (req, res) => {
     res.json(

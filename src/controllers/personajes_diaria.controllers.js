@@ -17,7 +17,8 @@ const obtenerPersonajes = async (req, res) => {
                 p.edad,
                 p.genero,
                 p.companero,
-                p.id_usuario
+                p.id_usuario,
+                p.imagen
             FROM personajes_diaria p
         `;
 
@@ -44,8 +45,8 @@ const agregarPersonaje = async (req, res) => {
         const id_usuario = usuario.id;
         const db = await database();
         const sql = `
-            INSERT INTO personajes_diaria(nombre, descripcion, edad, genero, companero, id_usuario)
-            VALUES('${nombre}', '${descripcion}', ${edad}, ${genero},${companero}, ${id_usuario})
+            INSERT INTO personajes_diaria(nombre, descripcion, edad, genero, companero, id_usuario, imagen)
+            VALUES('${nombre}', '${descripcion}', ${edad}, ${genero},${companero}, ${id_usuario}, ${imagen})
         `;
         console.log(sql);
         const [resultado] = await db.query(sql);
@@ -80,7 +81,8 @@ const obtenerPersonaje = async (req, res) => {
                 p.edad,
                 p.genero,
                 p.companero,
-                p.id_usuario
+                p.id_usuario,
+                p.imagen
             FROM personajes_diaria p
         WHERE p.id_per = ${id}
     `;
@@ -108,7 +110,8 @@ const obtenerPersonajeNombre = async (req, res) => {
                 p.edad,
                 p.genero,
                 p.companero,
-                p.id_usuario
+                p.id_usuario,
+                p.imagen
             FROM personajes_diaria p
         WHERE p.nombre like '${name}%'
 
@@ -131,7 +134,7 @@ const editarPersonaje = async (req, res) => {
     try {
         const { id } = req.params;
         const body = matchedData(req);
-        const { nombre, descripcion, edad, genero, companero } = req.body;
+        const { nombre, descripcion, edad, genero, companero, imagen } = req.body;
         const db = await database();
         const sql = `
             UPDATE personajes_diaria SET
@@ -139,7 +142,8 @@ const editarPersonaje = async (req, res) => {
                 descripcion = '${descripcion}',
                 edad = '${edad}',
                 genero = '${genero}',
-                companero = '${companero}'
+                companero = '${companero}',
+                companero = '${imagen}'
             WHERE id_per = ${id}
         `;
         //EJECUTAMOS LA CONSULTA

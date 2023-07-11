@@ -16,8 +16,9 @@ const router = Router();
 router.get('/', obtenerPersonajes);
 router.post('/', [TokenTrue, validadorPersonajes], agregarPersonaje);
 router.get('/:id', obtenerPersonaje);
+router.put('/:id', editarPersonaje,);
 router.get('/nombre/:name', obtenerPersonajeNombre);
-router.put('/:id',TokenTrue, editarPersonaje);
-router.delete('/:id',TokenTrue, eliminarPersonaje);
+router.put('/:id', editarPersonaje);
+router.delete('/:id',eliminarPersonaje);
 //EXPORTA NUESTRA RUTA PARA NUESTRO INDEX.JS
 module.exports = router;
